@@ -15,8 +15,8 @@ const LogoImg = styled.img`
   height: 100%;
 `;
 
-const logo = props => (
-  <LogoDiv height={props.height}>
+const logo = ({ height }) => (
+  <LogoDiv height={height}>
     <LogoImg src={burgerLogo} alt="MyBurger" />
   </LogoDiv>
 );
