@@ -7,18 +7,14 @@ import {
   BuildControlMoreButton,
 } from '../../../../styles/BuildControl';
 
-const buildControl = props => {
-  const { label, added, removed, disabled } = props;
-
-  return (
-    <BuildControlDiv>
-      <BuildControlLabel>{label}</BuildControlLabel>
-      <BuildControlLessButton onClick={removed} disabled={disabled}>
-        Less
-      </BuildControlLessButton>
-      <BuildControlMoreButton onClick={added}>More</BuildControlMoreButton>
-    </BuildControlDiv>
-  );
-};
+const buildControl = ({ label, added, removed, disabled }) => (
+  <BuildControlDiv>
+    <BuildControlLabel>{label}</BuildControlLabel>
+    <BuildControlLessButton onClick={removed} disabled={disabled}>
+      Less
+    </BuildControlLessButton>
+    <BuildControlMoreButton onClick={added}>More</BuildControlMoreButton>
+  </BuildControlDiv>
+);
 
 export default buildControl;

@@ -12,10 +12,10 @@ import {
   Bacon,
 } from '../../../styles/Burger';
 
-const burgerIngredient = props => {
+const burgerIngredient = ({ type }) => {
   let ingredient = null;
 
-  switch (props.type) {
+  switch (type) {
     case 'bread-bottom':
       ingredient = <BreadBottomDiv />;
       break;
