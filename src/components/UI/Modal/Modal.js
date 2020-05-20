@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import Backdrop from '../Backdrop/Backdrop';
@@ -22,30 +22,22 @@ const ModalDiv = styled.div`
   }
 `;
 
-class Modal extends Component {
-  shouldComponentUpdate(nextProps, nextState) {
-    return (
-      nextProps.show !== this.props.show ||
-      nextProps.children !== this.props.children
-    );
-  }
+const Modal = ({ show, children, modalClosed }) => (
+  <>
+    <Backdrop show={show} clicked={modalClosed} />
+    <ModalDiv
+      style={{
+        transform: show ? 'translateY(0)' : 'translateY(-100vh)',
+        opacity: show ? '1' : '0',
+      }}>
+      {children}
+    </ModalDiv>
+  </>
+);
 
-  render() {
-    const { show, modalClosed, children } = this.props;
-
-    return (
-      <>
-        <Backdrop show={show} clicked={modalClosed} />
-        <ModalDiv
-          style={{
-            transform: show ? 'translateY(0)' : 'translateY(-100vh)',
-            opacity: show ? '1' : '0',
-          }}>
-          {children}
-        </ModalDiv>
-      </>
-    );
-  }
-}
-
-export default Modal;
+export default React.memo(
+  Modal,
+  (prevProps, nextProps) =>
+    nextProps.show === prevProps.show &&
+    nextProps.children === prevProps.children
+);

@@ -36,18 +36,16 @@ const ValidationErrorParagraph = styled.p`
   margin: 5px 0;
 `;
 
-const input = props => {
-  const {
-    label,
-    elementType,
-    elementConfig,
-    value,
-    invalid,
-    touched,
-    valueType,
-    changed,
-  } = props;
-
+const input = ({
+  label,
+  elementType,
+  elementConfig,
+  value,
+  invalid,
+  touched,
+  valueType,
+  changed,
+}) => {
   let validationError = null;
   if (invalid && touched) {
     validationError = (

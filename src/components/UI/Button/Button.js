@@ -24,14 +24,10 @@ const Button = styled.button`
   }
 `;
 
-const button = props => {
-  const { clicked, theme, children, disabled } = props;
-
-  return (
-    <Button onClick={clicked} theme={theme} disabled={disabled}>
-      {children}
-    </Button>
-  );
-};
+const button = ({ clicked, theme, disabled, children }) => (
+  <Button onClick={clicked} theme={theme} disabled={disabled}>
+    {children}
+  </Button>
+);
 
 export default button;
