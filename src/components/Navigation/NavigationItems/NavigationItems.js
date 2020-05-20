@@ -18,24 +18,20 @@ const NavigationList = styled.ul`
   }
 `;
 
-const navigationItems = props => {
-  const { isAuthenticated } = props;
-
-  return (
-    <NavigationList>
-      <NavigationItem link="/" exact>
-        Burger Builder
-      </NavigationItem>
-      {isAuthenticated ? (
-        <>
-          <NavigationItem link="/orders">Orders</NavigationItem>
-          <NavigationItem link="/logout">Logout</NavigationItem>
-        </>
-      ) : (
-        <NavigationItem link="/auth">Authenticate</NavigationItem>
-      )}
-    </NavigationList>
-  );
-};
+const navigationItems = ({ isAuthenticated }) => (
+  <NavigationList>
+    <NavigationItem link="/" exact>
+      Burger Builder
+    </NavigationItem>
+    {isAuthenticated ? (
+      <>
+        <NavigationItem link="/orders">Orders</NavigationItem>
+        <NavigationItem link="/logout">Logout</NavigationItem>
+      </>
+    ) : (
+      <NavigationItem link="/auth">Authenticate</NavigationItem>
+    )}
+  </NavigationList>
+);
 
 export default navigationItems;

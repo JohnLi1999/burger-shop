@@ -54,16 +54,12 @@ const NavigationLink = styled(NavLink).attrs({ activeClassName })`
   }
 `;
 
-const navigationItem = props => {
-  const { link, children, exact } = props;
-
-  return (
-    <NavigationListItem>
-      <NavigationLink to={link} exact={exact}>
-        {children}
-      </NavigationLink>
-    </NavigationListItem>
-  );
-};
+const navigationItem = ({ link, exact, children }) => (
+  <NavigationListItem>
+    <NavigationLink to={link} exact={exact}>
+      {children}
+    </NavigationLink>
+  </NavigationListItem>
+);
 
 export default navigationItem;
