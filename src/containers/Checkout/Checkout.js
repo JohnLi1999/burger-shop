@@ -17,7 +17,7 @@ const Checkout = ({ igs, purchased, history, match }) => {
   let summary = <Redirect to="/" />;
 
   if (igs) {
-    const purchasedRedirect = purchased ? <Redirect to="/" /> : null;
+    const purchasedRedirect = purchased && <Redirect to="/" />;
     summary = (
       <>
         {purchasedRedirect}

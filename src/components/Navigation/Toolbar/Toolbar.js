@@ -28,18 +28,14 @@ const ToolbarNav = styled.nav`
   }
 `;
 
-const toolbar = props => {
-  const { drawerToggleClicked, isAuth } = props;
-
-  return (
-    <ToolbarDiv>
-      <DrawerToggle clicked={drawerToggleClicked} />
-      <Logo height="80%" />
-      <ToolbarNav>
-        <NavigationItems isAuthenticated={isAuth} />
-      </ToolbarNav>
-    </ToolbarDiv>
-  );
-};
+const toolbar = ({ isAuth, drawerToggleClicked }) => (
+  <ToolbarDiv>
+    <DrawerToggle clicked={drawerToggleClicked} />
+    <Logo height="80%" />
+    <ToolbarNav>
+      <NavigationItems isAuthenticated={isAuth} />
+    </ToolbarNav>
+  </ToolbarDiv>
+);
 
 export default toolbar;

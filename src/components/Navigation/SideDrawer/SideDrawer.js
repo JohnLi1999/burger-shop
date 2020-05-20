@@ -24,18 +24,14 @@ const SideDrawerDiv = styled.div`
   }
 `;
 
-const sideDrawer = props => {
-  const { open, closed, isAuth } = props;
-
-  return (
-    <>
-      <Backdrop show={open} clicked={closed} />
-      <SideDrawerDiv show={open} onClick={closed}>
-        <Logo height="11%" />
-        <NavigationItems isAuthenticated={isAuth} />
-      </SideDrawerDiv>
-    </>
-  );
-};
+const sideDrawer = ({ open, isAuth, closed }) => (
+  <>
+    <Backdrop show={open} clicked={closed} />
+    <SideDrawerDiv show={open} onClick={closed}>
+      <Logo height="11%" />
+      <NavigationItems isAuthenticated={isAuth} />
+    </SideDrawerDiv>
+  </>
+);
 
 export default sideDrawer;

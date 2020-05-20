@@ -23,16 +23,12 @@ const DrawerToggleSubDiv = styled.div`
   background-color: white;
 `;
 
-const drawerToggle = props => {
-  const { clicked } = props;
-
-  return (
-    <DrawerToggleDiv onClick={clicked}>
-      <DrawerToggleSubDiv />
-      <DrawerToggleSubDiv />
-      <DrawerToggleSubDiv />
-    </DrawerToggleDiv>
-  );
-};
+const drawerToggle = ({ clicked }) => (
+  <DrawerToggleDiv onClick={clicked}>
+    <DrawerToggleSubDiv />
+    <DrawerToggleSubDiv />
+    <DrawerToggleSubDiv />
+  </DrawerToggleDiv>
+);
 
 export default drawerToggle;
