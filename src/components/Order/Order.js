@@ -18,9 +18,7 @@ const IngredientSpan = styled.span`
   padding: 5px;
 `;
 
-const order = props => {
-  const { ingredients, price } = props;
-
+const order = ({ ingredients, price }) => {
   const ingredients_order = [];
   for (let ingredientName in ingredients) {
     ingredients_order.push({

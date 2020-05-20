@@ -9,23 +9,23 @@ const CheckoutSummaryDiv = styled.div`
   margin: auto;
 `;
 
-const checkoutSummary = props => {
-  const { checkoutCancelled, checkoutContinued } = props;
-
-  return (
-    <CheckoutSummaryDiv>
-      <h1>We hope it tastes well!</h1>
-      <div style={{ width: '100%', margin: 'auto' }}>
-        <Burger ingredients={props.ingredients} />
-      </div>
-      <Button theme="danger" clicked={checkoutCancelled}>
-        CANCEL
-      </Button>
-      <Button theme="success" clicked={checkoutContinued}>
-        CONTINUE
-      </Button>
-    </CheckoutSummaryDiv>
-  );
-};
+const checkoutSummary = ({
+  ingredients,
+  checkoutCancelled,
+  checkoutContinued,
+}) => (
+  <CheckoutSummaryDiv>
+    <h1>We hope it tastes well!</h1>
+    <div style={{ width: '100%', margin: 'auto' }}>
+      <Burger ingredients={ingredients} />
+    </div>
+    <Button theme="danger" clicked={checkoutCancelled}>
+      CANCEL
+    </Button>
+    <Button theme="success" clicked={checkoutContinued}>
+      CONTINUE
+    </Button>
+  </CheckoutSummaryDiv>
+);
 
 export default checkoutSummary;
