@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
@@ -14,37 +14,32 @@ const CenteredDiv = styled.div`
   margin: 100px;
 `;
 
-class Orders extends Component {
-  componentDidMount() {
-    const { token, userId } = this.props;
-    this.props.onFetchOrders(token, userId);
-  }
+const Orders = ({ token, userId, orders, loading, onFetchOrders }) => {
+  useEffect(() => {
+    onFetchOrders(token, userId);
+  }, [token, userId, onFetchOrders]);
 
-  render() {
-    const { orders, loading } = this.props;
-
-    let orderList = (
-      <CenteredDiv>
-        <Spinner />
-      </CenteredDiv>
-    );
-    if (!loading) {
-      if (orders.length !== 0) {
-        orderList = orders.map(order => (
-          <Order
-            key={order.id}
-            ingredients={order.ingredients}
-            price={+order.price}
-          />
-        ));
-      } else {
-        orderList = <CenteredDiv>No orders yet</CenteredDiv>;
-      }
+  let orderList = (
+    <CenteredDiv>
+      <Spinner />
+    </CenteredDiv>
+  );
+  if (!loading) {
+    if (orders.length !== 0) {
+      orderList = orders.map(order => (
+        <Order
+          key={order.id}
+          ingredients={order.ingredients}
+          price={+order.price}
+        />
+      ));
+    } else {
+      orderList = <CenteredDiv>No orders yet</CenteredDiv>;
     }
-
-    return orderList;
   }
-}
+
+  return orderList;
+};
 
 const mapStateToProps = state => {
   return {
