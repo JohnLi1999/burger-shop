@@ -28,7 +28,7 @@ const purchaseBurgerFail = (state, action) => {
   return updateObject(state, { loading: false });
 };
 
-const fetchOrdersState = (state, action) => {
+const fetchOrdersStart = (state, action) => {
   return updateObject(state, { loading: true });
 };
 
@@ -54,7 +54,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.PURCHASE_BURGER_FAIL:
       return purchaseBurgerFail(state, action);
     case actionTypes.FETCH_ORDERS_START:
-      return fetchOrdersState(state, action);
+      return fetchOrdersStart(state, action);
     case actionTypes.FETCH_ORDERS_SUCCESS:
       return fetchOrdersSuccess(state, action);
     case actionTypes.FETCH_ORDERS_FAIL:
